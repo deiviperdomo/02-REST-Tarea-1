@@ -91,4 +91,5 @@ public class ArticleRestController {
     public List<Article> buscarTodos() {
         return articleService.buscarTodos();
     }
+    
 }
