@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Detail {
+	private Long id;
 	private Date date;
     private String content;
     private String type;
