@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.CodeService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class CodeRestController {
         @ApiResponse(responseCode = "200", description = "Código creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Code alta(@RequestBody Code code) {
+    public Code alta(@Valid @RequestBody Code code) {
         return cserv.alta(code);
     }
 
@@ -48,7 +49,7 @@ public class CodeRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Código no encontrado")
     })
-    public Code modificar(@RequestBody Code code) {
+    public Code modificar(@Valid @RequestBody Code code) {
         return cserv.modificar(code);
     }
 
@@ -60,7 +61,7 @@ public class CodeRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Código no encontrado")
     })
-    public int eliminar(@RequestBody Code code) {
+    public int eliminar(@Valid @RequestBody Code code) {
         return cserv.eliminar(code);
     }
 

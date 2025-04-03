@@ -18,6 +18,7 @@ import es.eviden.project.modelo.service.TagService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -35,7 +36,7 @@ public class TagRestController {
         @ApiResponse(responseCode = "200", description = "Etiqueta creada exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Tag alta(@RequestBody Tag tag) {
+    public Tag alta(@Valid @RequestBody Tag tag) {
         return tserv.alta(tag);
     }
 
@@ -47,7 +48,7 @@ public class TagRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Etiqueta no encontrada")
     })
-    public Tag modificar(@RequestBody Tag tag) {
+    public Tag modificar(@Valid @RequestBody Tag tag) {
         return tserv.modificar(tag);
     }
 
@@ -59,7 +60,7 @@ public class TagRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Etiqueta no encontrada")
     })
-    public int eliminar(@RequestBody Tag tag) {
+    public int eliminar(@Valid @RequestBody Tag tag) {
         return tserv.eliminar(tag);
     }
 

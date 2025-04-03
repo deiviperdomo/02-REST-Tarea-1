@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.PhoneService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class PhoneRestController {
         @ApiResponse(responseCode = "200", description = "Teléfono creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Phone alta(@RequestBody Phone phone) {
+    public Phone alta(@Valid @RequestBody Phone phone) {
         return pserv.alta(phone);
     }
 
@@ -48,7 +49,7 @@ public class PhoneRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Teléfono no encontrado")
     })
-    public Phone modificar(@RequestBody Phone phone) {
+    public Phone modificar(@Valid @RequestBody Phone phone) {
         return pserv.modificar(phone);
     }
 
@@ -60,7 +61,7 @@ public class PhoneRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Teléfono no encontrado")
     })
-    public int eliminar(@RequestBody Phone phone) {
+    public int eliminar(@Valid @RequestBody Phone phone) {
         return pserv.eliminar(phone);
     }
 

@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class UserRestController {
         @ApiResponse(responseCode = "200", description = "Usuario creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public User alta(@RequestBody User user) {
+    public User alta(@Valid @RequestBody User user) {
         return userv.alta(user);
     }
 
@@ -48,7 +49,7 @@ public class UserRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
     })
-    public User modificar(@RequestBody User user) {
+    public User modificar(@Valid @RequestBody User user) {
         return userv.modificar(user);
     }
 
@@ -60,7 +61,7 @@ public class UserRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
     })
-    public int eliminar(@RequestBody User user) {
+    public int eliminar(@Valid @RequestBody User user) {
         return userv.eliminar(user);
     }
 

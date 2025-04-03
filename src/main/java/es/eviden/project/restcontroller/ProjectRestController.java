@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.ProjectService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class ProjectRestController {
         @ApiResponse(responseCode = "200", description = "Proyecto creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Project alta(@RequestBody Project project) {
+    public Project alta(@Valid @RequestBody Project project) {
         return pserv.alta(project);
     }
 
@@ -48,7 +49,7 @@ public class ProjectRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Proyecto no encontrado")
     })
-    public Project modificar(@RequestBody Project project) {
+    public Project modificar(@Valid @RequestBody Project project) {
         return pserv.modificar(project);
     }
 
@@ -60,7 +61,7 @@ public class ProjectRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Proyecto no encontrado")
     })
-    public int eliminar(@RequestBody Project project) {
+    public int eliminar(@Valid @RequestBody Project project) {
         return pserv.eliminar(project);
     }
 

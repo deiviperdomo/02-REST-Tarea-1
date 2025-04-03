@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.DetailService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class DetailRestController {
         @ApiResponse(responseCode = "200", description = "Detalle creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Detail alta(@RequestBody Detail detail) {
+    public Detail alta(@Valid @RequestBody Detail detail) {
         return dserv.alta(detail);
     }
 
@@ -48,7 +49,7 @@ public class DetailRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Detalle no encontrado")
     })
-    public Detail modificar(@RequestBody Detail detail) {
+    public Detail modificar(@Valid @RequestBody Detail detail) {
         return dserv.modificar(detail);
     }
 
@@ -60,7 +61,7 @@ public class DetailRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Detalle no encontrado")
     })
-    public int eliminar(@RequestBody Detail detail) {
+    public int eliminar(@Valid @RequestBody Detail detail) {
         return dserv.eliminar(detail);
     }
     

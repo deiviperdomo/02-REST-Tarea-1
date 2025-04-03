@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.BlogService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -39,7 +40,7 @@ public class BlogRestContoller {
         @ApiResponse(responseCode = "200", description = "Blog creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Blog alta(@RequestBody Blog blog) {
+    public Blog alta(@Valid @RequestBody Blog blog) {
         return bserv.alta(blog);
     }
 
@@ -51,7 +52,7 @@ public class BlogRestContoller {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Blog no encontrado")
     })
-    public Blog modificar(@RequestBody Blog blog) {
+    public Blog modificar(@Valid @RequestBody Blog blog) {
         return bserv.modificar(blog);
     }
 
@@ -63,7 +64,7 @@ public class BlogRestContoller {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Blog no encontrado")
     })
-    public int eliminar(@RequestBody Blog blog) {
+    public int eliminar(@Valid @RequestBody Blog blog) {
         return bserv.eliminar(blog);
     }
 

@@ -17,6 +17,7 @@ import es.eviden.project.modelo.service.ArticleServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -36,7 +37,7 @@ public class ArticleRestController {
         @ApiResponse(responseCode = "200", description = "Artículo creado exitosamente"),
         @ApiResponse(responseCode = "400", description = "Solicitud inválida")
     })
-    public Article alta(@RequestBody Article article) {
+    public Article alta(@Valid @RequestBody Article article) {
         return articleService.alta(article);
     }
   
@@ -47,7 +48,7 @@ public class ArticleRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Artículo no encontrado")
     })
-    public Article modificar(@RequestBody Article article) {
+    public Article modificar(@Valid @RequestBody Article article) {
         return articleService.modificar(article);
     }
 
@@ -58,7 +59,7 @@ public class ArticleRestController {
         @ApiResponse(responseCode = "400", description = "Solicitud inválida"),
         @ApiResponse(responseCode = "404", description = "Artículo no encontrado")
     })
-    public int eliminar(@RequestBody Article article) {
+    public int eliminar(@Valid @RequestBody Article article) {
         return articleService.eliminar(article);
     }
 
